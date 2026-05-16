@@ -1,0 +1,6 @@
+{
+  "name": "HabitFlow",
+  "description": "A modern, offline-first habit tracker with streaks, badges, and detailed progress stats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["offline_storage", "data_visualization"]
+}

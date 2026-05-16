@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "habit": {
+      "title": "Habit",
+      "description": "A habit tracked by the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "icon": { "type": "string" },
+        "color": { "type": "string" },
+        "frequency": { "type": "string", "enum": ["daily", "weekly"] },
+        "time": { "type": "string" },
+        "reminderEnabled": { "type": "boolean" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["userId", "name", "icon", "color", "frequency", "createdAt"]
+    },
+    "completion": {
+      "title": "Completion",
+      "description": "Records when a habit was completed",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "habitId": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["userId", "habitId", "date"]
+    },
+    "badge": {
+      "title": "Badge",
+      "description": "Badges earned by the user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "dateEarned": { "type": "number" }
+      },
+      "required": ["userId", "type", "dateEarned"]
+    },
+    "user": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "lastLogin": { "type": "number" }
+      },
+      "required": ["userId", "email", "lastLogin"]
+    }
+  },
+  "firestore": {
+    "habits": {
+      "schema": "habit",
+      "description": "Global collection of habits"
+    },
+    "completions": {
+      "schema": "completion",
+      "description": "Global collection of completion records"
+    },
+    "badges": {
+      "schema": "badge",
+      "description": "Global collection of earned badges"
+    },
+    "users": {
+      "schema": "user",
+      "description": "Registered users of the app"
+    }
+  }
+}
